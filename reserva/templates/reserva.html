@@ -1,0 +1,19 @@
+<title>Reserva - Pet Shop</title>
+    {% extends "inicio.html" %}
+    {% load bootstrap5 %}
+    {% block principal %}
+    <h1>Reserva Pet Banho</h1>
+    {% if sucesso %}
+    <p class="alert alert-success">RESERVA REALIZADA COM ÊXITO! ENTRAREMOS EM CONTATO EM BREVE.</p>
+    {% else %}
+    <p>
+        Preencha as informações abaixo para fazer a reserva de banho do seu pet.
+    </p>
+    <form action="" method="post" class="col-md-6">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <hr>
+        <button type="submit" class="btn btn-primary">EFETIVAR RESERVA</button>
+    </form>
+    {% endif %}
+    {% endblock %}

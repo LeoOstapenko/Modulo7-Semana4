@@ -1,0 +1,20 @@
+<title>Fale Conosco - Pet Shop</title>
+    {% extends "inicio.html" %}
+    {% load bootstrap5 %}
+    {% block principal %}
+    <h1>Fale Conosco</h1>
+    <p>
+      Envie uma mensagem através do formulário abaixo ou ligue para o telefone {{ telefone }}
+      falando com o responsável {{ responsavel|upper }}.
+    </p>
+    {% if sucesso %}
+    <p class="alert alert-success">MENSAGEM ENVIADA COM ÊXITO!</p>
+    {% else %}
+    <form action="" method="post" novalidate class="col-md-6">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <hr>
+        <button type="submit" class="btn btn-primary">ENVIAR MENSAGEM</button>
+    </form>
+    {% endif %}
+    {% endblock %}
